@@ -1,0 +1,183 @@
+[
+    {
+        "id": "a85796d5.f13b78",
+        "type": "mosca in",
+        "z": "ab3a5f76.c7464",
+        "mqtt_port": 1883,
+        "mqtt_ws_port": 8080,
+        "name": "",
+        "username": "",
+        "password": "",
+        "dburl": "",
+        "x": 130,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d247e68f.a275c8",
+        "type": "debug",
+        "z": "ab3a5f76.c7464",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "payload",
+        "x": 370,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "919cc8a3.97e668",
+        "type": "mqtt in",
+        "z": "ab3a5f76.c7464",
+        "name": "",
+        "topic": "/pub/NefryBT_123456789",
+        "qos": "2",
+        "broker": "32a2c535.945fea",
+        "x": 150,
+        "y": 200,
+        "wires": [
+            [
+                "d247e68f.a275c8",
+                "a457a5d0.883c68"
+            ]
+        ]
+    },
+    {
+        "id": "d37d0f9a.14b3c",
+        "type": "comment",
+        "z": "ab3a5f76.c7464",
+        "name": "MQTTブローカー",
+        "info": "",
+        "x": 120,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "aab4ec30.bedbe",
+        "type": "comment",
+        "z": "ab3a5f76.c7464",
+        "name": "NefryBT受信",
+        "info": "",
+        "x": 110,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "b21010e2.041be",
+        "type": "ui_chart",
+        "z": "ab3a5f76.c7464",
+        "name": "",
+        "group": "21a130f1.07212",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "x": 750,
+        "y": 280,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "a457a5d0.883c68",
+        "type": "json",
+        "z": "ab3a5f76.c7464",
+        "name": "",
+        "pretty": false,
+        "x": 350,
+        "y": 280,
+        "wires": [
+            [
+                "3851d9ec.0bc1c6"
+            ]
+        ]
+    },
+    {
+        "id": "3851d9ec.0bc1c6",
+        "type": "change",
+        "z": "ab3a5f76.c7464",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload.flag",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 550,
+        "y": 280,
+        "wires": [
+            [
+                "b21010e2.041be"
+            ]
+        ]
+    },
+    {
+        "id": "32a2c535.945fea",
+        "type": "mqtt-broker",
+        "z": "",
+        "broker": "127.0.0.1",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": ""
+    },
+    {
+        "id": "21a130f1.07212",
+        "type": "ui_group",
+        "z": "",
+        "name": "Default",
+        "tab": "d3ed2135.8090f",
+        "disp": true,
+        "width": "6"
+    },
+    {
+        "id": "d3ed2135.8090f",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Home",
+        "icon": "dashboard"
+    }
+]
